@@ -1,4 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// src/types/formField.type.ts
+
+import { TextInputProps } from "./text.type";
+
+// گسترش رابط FormField برای پشتیبانی از ویژگی‌های TextInput
 export interface FormField {
   name: string;
   label: string;
@@ -21,44 +25,45 @@ export interface FormField {
     | "detail"
     | "multiSelect";
 
+  // ویژگی‌های مشترک با TextInputProps
+  placeholder?: string;
+  maxLength?: number;
+  minLength?: number;
+  pattern?: string;
+  autoComplete?: string;
+  helperText?: string;
+  variant?: "outlined" | "filled" | "standard";
+  size?: "small" | "medium" | "large";
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  format?: (value: any) => any;
+
+  // سایر ویژگی‌های موجود
   options?: { label: string; value: any }[];
   transferListProps?: {
-    leftTitle?: React.ReactNode;
-    rightTitle?: React.ReactNode;
-    leftItems: TransferListItem[];
-    rightItems: TransferListItem[];
-    searchPlaceholder?: string;
-    required?: boolean;
-    disabled?: boolean;
-    error?: string;
-    onChange?: (value: unknown) => void;
+    /* ... */
   };
-  headerClassName?: string;
-  viewFileProps?: {
-    url?: string;
-    fileType?: string;
-    showPreview?: boolean;
-  };
-  dynamicProps?: {
-    addButtonText: string;
-    removeButtonText: string;
-    maxFields?: number;
-  };
-
-  onChange?: (value: any) => void;
-  fileProps?: {
-    accept?: string;
-    maxSize?: number;
-    allowedTypes?: string[];
-  };
-  multiSelectProps?: {
-    maxSelect?: number;
-  };
-  format?: (value: any) => any;
+  // ...
 }
 
-export interface TransferListItem {
-  id: number;
-  name: string;
-  codename: string;
+// تابع کمکی برای استخراج ویژگی‌های TextInput از FormField
+export function extractTextInputProps(field: FormField): TextInputProps {
+  return {
+    name: field.name,
+    label: field.label,
+    type: field.type as "text" | "email" | "password",
+    value: field.value,
+    disabled: field.disabled,
+    placeholder: field.placeholder,
+    maxLength: field.maxLength,
+    minLength: field.minLength,
+    pattern: field.pattern,
+    autoComplete: field.autoComplete,
+    helperText: field.helperText,
+    variant: field.variant,
+    size: field.size,
+    startIcon: field.startIcon,
+    endIcon: field.endIcon,
+    format: field.format,
+  };
 }

@@ -29,6 +29,11 @@ export interface InputProps {
   label?: string;
 }
 
+export interface TextInputProps extends InputProps {
+  onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
+  maxLength?: number;
+}
+
 export interface TextAreaProps {
   name: string;
   value?: string;
