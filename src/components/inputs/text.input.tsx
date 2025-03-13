@@ -12,22 +12,26 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
   type = "text",
 
+  // وضعیت‌ها
   disabled = false,
   readOnly = false,
   required = false,
   error,
 
+  // ویژگی‌های متنی
   placeholder = " ",
   maxLength,
   minLength,
   pattern,
   autoComplete,
- 
+
+  // رویدادها
   onBlur,
   onFocus,
   onKeyDown,
   onKeyUp,
 
+  // ویژگی‌های ظاهری
   variant = "outlined",
   size = "medium",
   startIcon,
