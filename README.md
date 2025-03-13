@@ -1,55 +1,65 @@
-# React Form Package
+<DOCUMENT> # React Form Package
+A sleek, lightweight, and highly customizable form library for React, crafted with TypeScript from the ground up. This package empowers developers to create robust, type-safe forms with ease, offering a modern API, built-in validation, and seamless state management—all while keeping your bundle size lean and your code clean.
 
-A lightweight, customizable form library for React built with TypeScript. This library provides components and hooks for building forms with validation, state management, and a clean, component-based API.
+Installation
+bash
 
-## Installation
+Collapse
 
-```bash
+Wrap
+
+Copy
 npm install form_package
+
 # or
+
 yarn add form_package
-```
+Features
+Full TypeScript support with robust, comprehensive type definitions
+Effortless form state management powered by React Context
+Ready-to-use controlled components: inputs, selects, textareas, and checkboxes
+Built-in field validation for reliable user input
+Flexible, customizable styling to match your design system
+Minimal dependencies for a lightweight footprint
+Basic Usage
+tsx
 
-## Features
+Collapse
 
-- TypeScript support with comprehensive type definitions
-- Form state management via React Context
-- Controlled form components for inputs, selects, textareas, and checkboxes
-- Field validation
-- Customizable styling
-- Lightweight with minimal dependencies
+Wrap
 
-## Basic Usage
-
-```tsx
+Copy
 import React from "react";
 import { Form, Input, Button } from "form_package";
 
 const MyForm = () => {
-  const handleSubmit = (data) => {
-    console.log("Form submitted:", data);
-  };
+const handleSubmit = (data) => {
+console.log("Form submitted:", data);
+};
 
-  return (
-    <Form onSubmit={handleSubmit}>
-      <Input name="firstName" label="First Name" required />
-      <Input name="lastName" label="Last Name" required />
-      <Input name="email" type="email" label="Email" required />
-      <Button type="submit">Submit</Button>
-    </Form>
-  );
+return (
+<Form onSubmit={handleSubmit}>
+<Input name="firstName" label="First Name" required />
+<Input name="lastName" label="Last Name" required />
+<Input name="email" type="email" label="Email" required />
+<Button type="submit">Submit</Button>
+</Form>
+);
 };
 
 export default MyForm;
-```
-
-## Components
-
-### Form
-
+Components
+Form
 The container component that provides context for all form fields.
 
-```tsx
+tsx
+
+Collapse
+
+Wrap
+
+Copy
+
 <Form
   onSubmit={(values) => console.log(values)}
   initialValues={{ firstName: "John" }}
@@ -57,13 +67,16 @@ The container component that provides context for all form fields.
 >
   {/* Form fields */}
 </Form>
-```
-
-### Input
-
+Input
 A text input field with various types (text, email, password, etc.).
 
-```tsx
+tsx
+
+Collapse
+
+Wrap
+
+Copy
 <Input
   name="email"
   type="email"
@@ -71,33 +84,34 @@ A text input field with various types (text, email, password, etc.).
   placeholder="Enter your email"
   required
 />
-```
-
-### FormField
-
+FormField
 A wrapper component for custom form fields.
 
-```tsx
+tsx
+
+Collapse
+
+Wrap
+
+Copy
 <FormField name="custom" label="Custom Field">
-  {/* Custom input element */}
+{/_ Custom input element _/}
 </FormField>
-```
-
-### Button
-
+Button
 A button component for form submissions or actions.
 
-```tsx
+tsx
+
+Collapse
+
+Wrap
+
+Copy
 <Button type="submit">Submit Form</Button>
-```
-
-## Development
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run the development server: `npm run dev`
-4. Build the package: `npm run build`
-
-## License
-
+Development
+Clone the repository
+Install dependencies: npm install
+Run the development server: npm run dev
+Build the package: npm run build
+License
 ISC
